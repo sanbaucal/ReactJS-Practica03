@@ -6,7 +6,7 @@ function PostList({ view_active, posts }) {
   const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setSpinner(false), 100);
+    setTimeout(() => setSpinner(false), 3000);
   }, []);
 
   return spinner ? (
@@ -25,15 +25,15 @@ function PostList({ view_active, posts }) {
             return (
               <div
                 className="col-xs-12 col-sm-6 col-lg-4 col-xl-3 mb-3"
-                key={i}
+                key={episode.id}
               >
                 <Post
-                  autor={episode.name}
-                  text={episode.summary.slice(0, 50)}
-                  image={episode.image.medium}
+                  autor={episode.author.name}
+                  text={episode.text.slice(0, 50)}
+                  image={episode.image}
                   createAt={moment(episode.airdate).fromNow()}
-                  likes={0}
-                  comments={0}
+                  likes={episode.likes}
+                  comments={episode.comments.length}
                 />
               </div>
             );

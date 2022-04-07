@@ -1,13 +1,12 @@
 import React from 'react';
 class Searchbar extends React.Component {
-
-  handleKeyPress = (event) => {
-    if (
-      event.key === 'Enter' ||
-      event.key === "Backspace"
-    ) {
-      this.props.onSearch(event.target.value);
-    }
+  onChange = (event) => {
+    // if (
+    //   event.key === 'Enter' ||
+    //   event.key === "Backspace"
+    // ) {
+    this.props.onSearch(event.target.value);
+    // }
   };
 
   render() {
@@ -19,7 +18,7 @@ class Searchbar extends React.Component {
             type="input"
             placeholder="Buscar"
             aria-label="Busca"
-            onKeyDown={this.handleKeyPress.bind(this)}
+            onChange={this.onChange.bind(this)}
           />
         </div>
       )
